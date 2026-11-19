@@ -5,6 +5,8 @@ description: "Turn a research goal into a checkable experimental plan: hypothesi
 
 # expcraft — Experimental Plan Generation and Validation
 
+> **脚本路径**：本技能安装于 `/skills/weekly-skill/`，脚本绝对路径为 `/skills/weekly-skill/scripts/`（工作目录是 `/app/work`，不要用相对路径）。
+
 Turn a research goal into a plan a lab can schedule, execute and review — and prove the arithmetic. The failure mode this skill exists to prevent: a textbook-shaped outline ("准备样品—设置对照—检测分析—统计分析") with no operational definitions, no positive control, no parameter ranges, no equipment models, no cost/time estimate, and a single "注意安全" for risk.
 
 **Method in one line:** parse the goal into hypothesis + variables → bind steps to the case's resource contract → compute time/cost → validate domains, controls, arithmetic and risks → emit the plan with a validation verdict.
@@ -20,7 +22,7 @@ Turn a research goal into a plan a lab can schedule, execute and review — and 
 ### Phase 1 — Generate / evaluate plans
 
 ```bash
-python3 scripts/plan.py --case /input/case.json --work /app/work
+python3 /skills/weekly-skill/scripts/plan.py --case /input/case.json --work /app/work
 ```
 
 1. **Goal → hypothesis + variables.** Recognizes `effect of X on Y`, `compare A and B`; falls back to phrase extraction. Each variable carries kind (independent/dependent/group/context) and a note; operational definitions are filled by the model where the goal does not state them.
