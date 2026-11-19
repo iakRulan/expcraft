@@ -1,0 +1,17 @@
+{
+  "case_id": "example-plan",
+  "goal": "Effect of annealing temperature on the conductivity of perovskite films",
+  "constraints": {"max_cost": 5000, "max_time_h": 80},
+  "resources": {
+    "spin_coater": {"step": "涂膜", "duration_h": 2, "cost": 200, "reagents": ["钙钛矿前驱液"]},
+    "tube_furnace": {"step": "退火", "duration_h": 4, "cost": 400},
+    "sem": {"step": "形貌表征", "duration_h": 3, "cost": 600},
+    "xrd": {"step": "结构表征", "duration_h": 3, "cost": 500},
+    "probe_station": {"step": "电学测试", "duration_h": 2, "cost": 300}
+  },
+  "parameter_domains": {
+    "temperature": {"unit": "C", "min": 80, "max": 150, "source": "预实验"},
+    "spin_speed": {"unit": "rpm", "min": 1000, "max": 6000, "source": "设备手册"}
+  },
+  "required_controls": ["blank", "positive"]
+}
